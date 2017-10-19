@@ -13,15 +13,13 @@ class CreateAssesmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assesments', function (Blueprint $table) {
+        Schema::create('assessments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('assigments_Id')->unsigned();
-            $table->foreign('assigments_Id')->references('id')
-             ->on('assigments');
-            $table->integer('students_Id')->unsigned();
-            $table->foreign('students_Id')->references('id')
-            ->on('students');
-            $table->number('nilai');      
+            $table->integer('assignment_id')->unsigned();
+            $table->foreign('assignment_id')->references('id')->on('assignments');
+            $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->tinyInteger('assessment')->unsigned();
             $table->timestamps();
         });
     }
